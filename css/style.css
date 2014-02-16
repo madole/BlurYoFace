@@ -55,7 +55,7 @@
 	position: relative;
 	float: left;
 }
-#blurFaces, #save, #imgur{
+#blurFaces, #save, #imgur, #imgurUrl{
 	position:relative;
 	float: left;
 	padding-left: 5px;

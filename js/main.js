@@ -3,7 +3,9 @@
     imageLoader.addEventListener('change', handleImage, false);
     var canvas = document.getElementById('imageCanvas');
     var ctx = canvas.getContext('2d');
-
+    function copyToClipboard(text) {
+      window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+    }
 
     function handleImage(e) {
         var reader = new FileReader();
@@ -78,17 +80,18 @@
                         'type': 'base64'
                     },
                     success: function(result) {
-
+                        $('#imgurUrl').html("<span class='glyphicon glyphicon-link'></span> Click to copy to clipboard : "+ result.data.link);
+                        $('#imgurUrl').fadeIn(2000);
+                        $('#imgurUrl').click(function(){
+                            copyToClipboard(result.data.link);
+                        });
                         console.log('cool');
                         console.log(result);
                     }
                 });
             });
-
-
         });
-
-
-
     });
 })();
+
+
