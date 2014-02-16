@@ -59,24 +59,36 @@
             $('#imgur').fadeIn(2000);
 
             $('#imgur').click(function() {
+
+                var img;
+                try {
+                    img = document.getElementById('imageCanvas').toDataURL('image/jpeg', 0.9).split(',')[1];
+                }
+                catch (e) {
+                    img = document.getElementById('imageCanvas').toDataURL().split(',')[1];
+                }
                 $.ajax({
                     url: 'https://api.imgur.com/3/image',
+                    method: 'POST',
                     headers: {
-                        'Authorization': 'b5924ef75ccbba7'
+                        'Authorization': 'Client-ID b5924ef75ccbba7'
                     },
-                    type: 'POST',
                     data: {
-                        'image': dataURL
+                        'image': img,
+                        'type': 'base64'
+                    },
+                    success: function(result) {
+
+                        console.log('cool');
+                        console.log(result);
                     }
-                }).success(function() {
-                    console.log('cool');
-                    console.log(data);
-                }).error(function(error) {
-                    console.log(error);
-                    alert('Could not reach api.imgur.com. Sorry :(');
                 });
             });
-    });
 
-});
+
+        });
+
+
+
+    });
 })();
