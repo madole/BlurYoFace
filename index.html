@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset=utf-8 />
+	<title>Blur Yo Face</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Frijole' rel='stylesheet' type='text/css'>
+	<body>
+		<div class='container'>
+			<div class='header'>
+				<div class='container'>
+					<div class='header-text'>
+						Blur Yo Face!
+					</div> 
+					<h2>Your onestop shop for automatic facial blurring</h2>
+				</div>
+			</div>
+			<div id='canvasUpload' class='restOfPage'>
+				<div class='container'>
+					<input type="file" id="imageLoader" class="filestyle" data-classButton="btn btn-default" data-input="false" data-buttonText="Choose image to upload" data-classIcon="icon-plus"/>
+					<div class="btn-group">
+						<button id="blurFaces" class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span> Detect & Blur Faces 
+						</button>
+						<div id="save"></div>
+						<button id="imgur" class="btn btn-default"><span class="glyphicon glyphicon-cloud-upload"></span> Upload to Imgur </button>
+					</div>
+					<br /> <br />
+					<div class="container resizedImage">
+						<div id='imageContent'>
+							<canvas id="imageCanvas"></canvas>
+							<div id='content'></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<!-- Facial Detection -->
+		<script src="js/facedetection/ccv.js"></script> 
+		<script src="js/facedetection/face.js"></script>
+		<script src="js/jquery.facedetection.js"></script> 
+		<!-- Super Fast Blur -->
+		<script src="js/superfastblur.js"></script> 
+		<script src="js/bootstrapfilestyle.js"></script> 
+		<script type="text/javascript" src="js/main.js"></script>
+
+	</body>
+	</html>
